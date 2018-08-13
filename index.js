@@ -47,9 +47,9 @@ class Meal {
 
 	static byPrice() {
 		return store.meals.slice().sort((a, b) => a.price < b.price)
-	};
+	}
 
-};
+}
 
 class Customer {
 
