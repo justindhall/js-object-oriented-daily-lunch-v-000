@@ -26,7 +26,9 @@ class Neighborhood {
   }
   
   meals(){
-
+    let meals = this.deliveries().map(delivery => store.meals.find(meal => meal.id == delivery.mealId))
+    let uniqueMeals = [...new Set(meals)]
+    return uniqueMeals;
   }
   
 }
