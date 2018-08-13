@@ -11,22 +11,22 @@ class Neighborhood {
 		this.name = name
 		this.id = neighborhoodId++
 		store.neighborhoods.push(this)
-	};
+	}
 
 	deliveries() {
 		return store.deliveries.filter(delivery => delivery.neighborhoodId === this.id)
-	};
+	}
 
 	customers() {
 		return store.customers.filter(customer => customer.neighborhoodId === this.id)
-	};
+	}
 
 	meals() {
 		const meals = this.deliveries().map(delivery => store.meals.find(meal => meal.id === delivery.mealId))
 		let mealsUnique = [...new Set(meals)]
 		return mealsUnique
-	};
-};
+	}
+}
 
 class Meal {
 
@@ -35,11 +35,11 @@ class Meal {
 		this.price = price
 		this.id = mealId++
 		store.meals.push(this)
-	};
+	}
 
 	deliveries() {
 		return store.deliveries.filter(delivery => delivery.mealId === this.id)
-	};
+	}
 
 	customers() {
 		return this.deliveries().map(delivery => store.customers.find(customer => customer.id === delivery.customerId))
@@ -53,10 +53,9 @@ class Meal {
 
 class Customer {
 
-	constructor(name, nid) {
+	constructor(name, neighborhoodId) {
 		this.name = name
-		this.neighborhoodId = nid
-		this.id = ++customerId
+		this.neighborhoodId = neighborhoodId;
 		store.customers.push(this)
 	};
 
