@@ -94,6 +94,14 @@ class Delivery{
   }
   
   meal(){
-    
+    return store.meals.find(meal => meal.id == this.mealId)
+  }
+  
+  customer(){
+    return store.customers.find(customer => customer.id == this.customerId)
+  }
+  
+  neighborhood(){
+    return store.neighborhoods.find(neighborhood => neighborhood.id == this.neighborhoodId)
   }
 }
