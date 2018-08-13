@@ -58,38 +58,38 @@ class Customer {
 		this.neighborhoodId = neighborhoodId;
 		this.id = customerId++;
 		store.customers.push(this)
-	};
+	}
 
 	deliveries() {
 		return store.deliveries.filter(delivery => delivery.customerId === this.id)
-	};
+	}
 
 	meals() {
 		return this.deliveries().map(delivery => store.meals.find(meal => meal.id === delivery.mealId))
-	};
+	}
 
 	totalSpent() {
 		let total = 0
 		for (let meal of this.meals()) {
 			total = meal.price + total
-		};
+		}
 		return total
-	};
-};
+	}
+}
 
 class Delivery {
 
-	constructor(mid, nid, cid) {
-		this.mealId = mid
-		this.customerId = cid
-		this.neighborhoodId = nid
-		this.id = ++deliveryId
+	constructor(mealId, neighborhoodId, customerId) {
+		this.mealId = mealId;
+		this.customerId = customerId;
+		this.neighborhoodId = neighborhooodId;
+		this.id = deliveryId++;
 		store.deliveries.push(this)
-	};
+	}
 
 	meal() {
 		return store.meals.find(meal => meal.id === this.mealId)
-	};
+	}
 
 	customer() {
 		return store.customers.find(customer => customer.id === this.customerId)
