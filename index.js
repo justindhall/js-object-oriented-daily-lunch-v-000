@@ -30,7 +30,6 @@ class Neighborhood {
     let uniqueMeals = [...new Set(meals)]
     return uniqueMeals;
   }
-  
 }
 
 class Customer{
